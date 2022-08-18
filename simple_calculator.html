@@ -64,12 +64,14 @@
                 <button
                     class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">0</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">.</button>
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">Del</button>
                 <button
                     class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">/</button>
                 <button
                     class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">=</button>
             </div>
+            <button
+                class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all w-full">Clear</button>
         </section>
     </main>
     <script>
@@ -88,8 +90,14 @@
                 // if (isNaN(v)) {
                 //     console.log(isNaN(V));
                 // }
+                if (v == 'Clear') {
+                    text_field_location.value = "";
+                }
+                else if (v == 'Del') {
+                    text_field_location.value = (text_field_location.value).slice(0, -1);
 
-                if (v == '+') {
+                }
+                else if (v == '+') {
                     previous_value = parseFloat(text_field_location.value);
                     operator.value = operation = '+';
                     previous_value_show.value = previous_value;
