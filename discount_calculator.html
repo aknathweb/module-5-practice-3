@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main class="mt-10">
+        <section class="w-[50%] m-auto bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-5">
+            <div class="text-white text-3xl font-bold">
+                <h1 class="text-center my-5">30% Discount!!!</h1>
+                <div class="grid grid-cols-2 w-[50%] text-xl">
+                    <h3>Regular Price:</h3>
+                    <h3>$<span id="product_price_show">5500</span></h3>
+                    <h3>Offer Price:</h3>
+                    <h3>$<span id="offer_price_show">00</span></h3>
+                    <h3>Total Price:</h3>
+                    <h3>$<span id="total_price_show">5500</span></h3>
+                </div>
+            </div>
+            <div class="py-5">
+                <input type="number" name="" class="p-2 w-full" id="product_price" value="5500">
+            </div>
+            <div class="pb-5">
+                <p class="text-stone-700">30% discount give promo code</p>
+                <input type="text" placeholder="Enter promo code" id="promo_code" class=" p-2 w-[80%]">
+                <button id="apply_button" class="w-[19%] p-2 bg-slate-700 text-white hover:bg-slate-900">Apply</button>
+            </div>
+        </section>
+    </main>
+    <script>
+        const product_price_show_location = document.getElementById('product_price_show');
+        const offer_price_show_location = document.getElementById('offer_price_show');
+        const total_price_show_location = document.getElementById('total_price_show');
+        const product_price_location = document.getElementById('product_price');
+        const promo_code_location = document.getElementById('promo_code');
+
+
+        // const promo_code = promo_code_location.value;
+        document.getElementById("apply_button").addEventListener('click', function () {
+            const product_price = parseFloat(product_price_location.value);
+            const product_price_30_percent = (product_price * 30 / 100);
+            const total_price = product_price - (product_price * 30 / 100);
+            if (product_price <= 0 || isNaN(product_price)) {
+                alert('give positive value');
+                return;
+            }
+            const promo_code = promo_code_location.value;
+            if (promo_code == 'DOM') {
+                offer_price_show_location.innerText = product_price_30_percent;
+                total_price_show_location.innerText = total_price;
+            }
+            else {
+                offer_price_show_location.innerText = '00';
+                total_price_show_location.innerText = product_price;
+            }
+            product_price_show_location.innerText = product_price;
+
+        });
+
+    </script>
+</body>
+
+</html>
