@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Simple Arithmetic Calculator</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <section class=" bg-slate-300 p-5 w-[50%] mx-auto mt-10">
+            <div class="grid grid-cols-3 my-2 gap-1">
+                <div>
+                    <p>Previous Value :</p>
+                    <input type="number" value="00" class="p-1 bg-white text-black text-center" id="previous_value"
+                        value="00" disabled>
+                </div>
+                <div>
+                    <p>Operator :</p>
+                    <input type="text" value="+" class="p-1 bg-white text-black text-center" id="operator" value="00"
+                        disabled>
+                </div>
+                <div>
+                    <p>Previous Result :</p>
+                    <input type="number" value="00" class="p-1 bg-white text-black text-center" id="result_value"
+                        disabled>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 my-5">
+                <input type="number" class="p-3 bg-white text-black" id="text_field" disabled>
+            </div>
+            <div class="grid grid-cols-4 bg-gray-200 rounded-md mx-auto p-1">
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">1</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">2</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">3</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">+</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">4</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">5</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">6</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">-</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">7</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">8</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">9</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">*</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">0</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">.</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">/</button>
+                <button
+                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">=</button>
+            </div>
+        </section>
+    </main>
+    <script>
+        let value_location = document.getElementsByClassName('number_value');
+        let text_field_location = document.getElementById('text_field');
+        let previous_value_show = document.getElementById('previous_value');
+        let result_value_show = document.getElementById('result_value');
+        let operator = document.getElementById('operator');
+        let previous_value = 0;
+        let operation = '+';
+        for (let value of value_location) {
+            let v;
+            value.addEventListener('click', function (e) {
+
+                v = e.target.innerText;
+                // if (isNaN(v)) {
+                //     console.log(isNaN(V));
+                // }
+
+                if (v == '+') {
+                    previous_value = parseFloat(text_field_location.value);
+                    operator.value = operation = '+';
+                    previous_value_show.value = previous_value;
+                    text_field_location.value = "";
+                }
+                else if (v == '-') {
+                    previous_value = parseFloat(text_field_location.value);
+                    operator.value = operation = '-';
+                    previous_value_show.value = previous_value;
+                    text_field_location.value = "";
+                }
+                else if (v == '/') {
+                    previous_value = parseFloat(text_field_location.value);
+                    operator.value = operation = '/';
+                    previous_value_show.value = previous_value;
+                    text_field_location.value = "";
+                }
+                else if (v == '*') {
+                    previous_value = parseFloat(text_field_location.value);
+                    operator.value = operation = '*';
+                    previous_value_show.value = previous_value;
+                    text_field_location.value = "";
+                }
+                else if (v == '=') {
+                    switch (operation) {
+                        case '+':
+                            previous_value = text_field_location.value = parseFloat(previous_value) + parseFloat(text_field_location.value);
+                            result_value_show.value = previous_value;
+                            break;
+                        case '-':
+                            previous_value = text_field_location.value = parseFloat(previous_value) - parseFloat(text_field_location.value);
+                            result_value_show.value = previous_value;
+                            break;
+                        case '*':
+                            previous_value = text_field_location.value = parseFloat(previous_value) * parseFloat(text_field_location.value);
+                            result_value_show.value = previous_value;
+                            break;
+                        case '/':
+                            previous_value = text_field_location.value = parseFloat(previous_value) / parseFloat(text_field_location.value);
+                            result_value_show.value = previous_value;
+                            break;
+                    }
+                }
+                else
+                    text_field_location.value = text_field_location.value + v;
+            });
+        }
+    </script>
+</body>
+
+</html>
