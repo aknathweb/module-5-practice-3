@@ -19,66 +19,64 @@
             <div class="grid grid-cols-1 my-5">
                 <input type="text" class="p-3 bg-white text-black" id="text_field" disabled>
             </div>
-            <div class="grid grid-cols-4 bg-gray-200 rounded-md mx-auto p-1">
+            <div class="grid grid-cols-4 bg-gray-200 rounded-md mx-auto p-1" id="button_press_value">
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">1</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">1</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">2</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">2</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">3</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">3</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">+</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">+</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">4</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">4</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">5</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">5</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">6</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">6</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">-</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">-</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">7</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">7</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">8</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">8</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">9</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">9</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">*</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">*</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">0</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">0</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">Del</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">Del</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">/</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">/</button>
                 <button
-                    class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">=</button>
+                    class="p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all">=</button>
+                <button
+                    class="col-span-4 p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all w-full">Clear</button>
             </div>
-            <button
-                class="number_value p-2 m-2 bg-gray-400 text-center rounded-lg shadow-lg font-bold hover:bg-gray-500 transition-all w-full">Clear</button>
+
         </section>
     </main>
     <script>
-        let value_location = document.getElementsByClassName('number_value');
+        let all_button_collection_location = document.getElementById('button_press_value')
         let text_field_location = document.getElementById('text_field');
         text_field_location.value = '0';
-        for (let value of value_location) {
-            let v;
-            value.addEventListener('click', function (e) {
-
-                v = e.target.innerText;
-                if (v == '=') {
-                    text_field_location.value = eval(text_field_location.value);
-                }
-                else if (v == 'Clear') {
-                    text_field_location.value = "";
-                }
-                else if (v == 'Del') {
-                    text_field_location.value = (text_field_location.value).slice(0, -1);
-                }
-                else
-                    text_field_location.value = text_field_location.value + v;
-            });
-        }
+        let v;
+        all_button_collection_location.addEventListener('click', function (e) {
+            v = e.target.innerText;
+            if (v == '=') {
+                text_field_location.value = eval(text_field_location.value);
+            }
+            else if (v == 'Clear') {
+                text_field_location.value = "0";
+            }
+            else if (v == 'Del') {
+                text_field_location.value = (text_field_location.value).slice(0, -1);
+            }
+            else
+                text_field_location.value = text_field_location.value + v;
+        });
     </script>
 </body>
 
